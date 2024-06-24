@@ -140,11 +140,7 @@
         </div>
         <!-- Full Screen Search End -->
 
-        <form action="?" method="POST">
-            <div class="g-recaptcha" data-sitekey="6Ld_8f8pAAAAAABvpWXnYbj6SDQ8P0cZn8xGbDYu"></div>
-            <br/>
-            <input type="submit" value="Submit">
-          </form>
+       
       <!-- Contact Start -->
 <div class="container-xxl py-5 bg-light">
     <div class="container px-lg-5">
@@ -155,7 +151,7 @@
                     <h2 class="mt-2">Contacta para cualquier consulta</h2>
                 </div>
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
-                    <form action="recaptchaGoogle.php" method="POST">
+                    <form id="contactForm" action="enviar_correo.php" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -165,8 +161,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Tu Email">
-                                    <label for="email">Tu Email</label>
+                                    <input type="email" class="form-control" id="remitente" placeholder="Tu Email">
+                                    <label for="remitente">Tu Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -177,11 +173,13 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Escribe tu mensaje aquí" id="message" style="height: 150px"></textarea>
-                                    <label for="message">Mensaje</label>
+                                    <textarea class="form-control" placeholder="Escribe tu mensaje aquí" id="mensaje" style="height: 150px"></textarea>
+                                    <label for="mensaje">Mensaje</label>
                                 </div>
                             </div>
-                           
+                            <div id="successMessage" style="display: none;" class="alert alert-success mt-3" role="alert">
+                                ¡El mensaje se ha enviado correctamente!
+                            </div>
                             <div class="g-recaptcha" data-sitekey="6Ld_8f8pAAAAAABvpWXnYbj6SDQ8P0cZn8xGbDYu"></div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Enviar Mensaje</button>
@@ -380,7 +378,19 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="app.js"></script>
- 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactForm = document.getElementById("contactForm");
+            const successMessage = document.getElementById("successMessage");
+    
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+                successMessage.style.display = "block";
+    
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

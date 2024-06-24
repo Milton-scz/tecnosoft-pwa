@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for seomaster-1-0-0-1 on 2024-06-22T23:40:58-04:00
+# fly.toml app configuration file generated for tecnosoft-pwa3 on 2024-06-24T03:54:45-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'seomaster-1-0-0-1'
+app = 'tecnosoft-pwa3'
 primary_region = 'scl'
 
 [build]
