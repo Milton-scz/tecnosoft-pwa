@@ -13,7 +13,7 @@ const cacheUrls = [
       '/css/style.css',
       '/css/bootstrap.min.css',
       '/app.js',
-      '/pwa.png',
+      '/logo-tecnosoft.png',
     // Add other assets and resources you want to cache
 ];
 
