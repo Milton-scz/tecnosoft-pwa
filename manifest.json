@@ -1,8 +1,8 @@
 {
-    "name": "PWA Installable Website",
-    "short_name": "PWA Website",
+    "name": "tecnosoft",
+    "short_name": "PWA tecnosoft",
     "description": "A simple PWA installable website",
-    "author": "Najm Ajmal",
+    "author": "Milton Rodriguez",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
