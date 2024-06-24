@@ -1,6 +1,6 @@
 
   
-  const CACHE_NAME = 'pwa-cache-v1'; // Change this to update the cache
+  const CACHE_NAME = 'pwa-cache-v1'; 
 const cacheUrls = [
       '/',
       '/index.html',
@@ -14,7 +14,7 @@ const cacheUrls = [
       '/css/bootstrap.min.css',
       '/app.js',
       '/logo-tecnosoft.png',
-    // Add other assets and resources you want to cache
+   
 ];
 
 self.addEventListener('install', (event) => {

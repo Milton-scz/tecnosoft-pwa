@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -30,10 +30,17 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-  
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</script>
+
 </head>
 
 <body>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+          alert("grecaptcha is ready!");
+        };
+      </script>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -42,7 +49,27 @@
             </div>
         </div>
         <!-- Spinner End -->
-
+ <!-- Modal home -->
+ <div class="modal fade" id="misionVisionModalHome" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Misión y Visión</h5>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h5>Misión</h5>
+        <p>En TECNOSOFT, nuestra misión es ofrecer soluciones innovadoras y eficientes en desarrollo de software, adaptadas a las necesidades específicas de nuestros clientes. Nos comprometemos a proporcionar productos y servicios de alta calidad que impulsen la transformación digital de empresas y organizaciones, facilitando así su crecimiento y éxito en un entorno tecnológico en constante evolución.</p>
+        <h5>Visión</h5>
+        <p>Nuestra visión en TECNOSOFT es ser reconocidos como líderes en el sector de desarrollo de software, destacándonos por nuestra excelencia técnica, creatividad y capacidad de respuesta. Nos esforzamos por establecer relaciones duraderas con nuestros clientes, siendo su socio de confianza en la implementación de soluciones innovadoras que optimicen sus procesos y maximicen su competitividad en el mercado global.</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+    </div>
+</div>
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
@@ -57,7 +84,8 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="about.html" class="nav-item nav-link">¿Quienes somos?</a>
+                        <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#misionVisionModalHome">Misión y Visión</a>
                         <a href="service.html" class="nav-item nav-link">Servicios</a>
                         <a href="project.html" class="nav-item nav-link">Proyectos</a>
                         <div class="nav-item dropdown">
@@ -112,7 +140,11 @@
         </div>
         <!-- Full Screen Search End -->
 
-
+        <form action="?" method="POST">
+            <div class="g-recaptcha" data-sitekey="6Ld_8f8pAAAAAABvpWXnYbj6SDQ8P0cZn8xGbDYu"></div>
+            <br/>
+            <input type="submit" value="Submit">
+          </form>
       <!-- Contact Start -->
 <div class="container-xxl py-5 bg-light">
     <div class="container px-lg-5">
@@ -123,7 +155,7 @@
                     <h2 class="mt-2">Contacta para cualquier consulta</h2>
                 </div>
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
-                    <form>
+                    <form action="recaptchaGoogle.php" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -149,6 +181,8 @@
                                     <label for="message">Mensaje</label>
                                 </div>
                             </div>
+                           
+                            <div class="g-recaptcha" data-sitekey="6Ld_8f8pAAAAAABvpWXnYbj6SDQ8P0cZn8xGbDYu"></div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Enviar Mensaje</button>
                             </div>
@@ -170,7 +204,13 @@
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Contacto</h5>
                 <p><i class="fa fa-map-marker-alt me-3"></i>Santa Cruz, Bolivia</p>
-                <p><i class="fa fa-phone-alt me-3"></i>+591 123 45678</p>
+                <p>
+                    <div class="contact-info">
+                        <a href="https://wa.me/59176644887" target="_blank">
+                            <i class="fab fa-whatsapp"></i>+591 76644887
+                        </a>
+                    </div>
+                </p>
                 <p><i class="fa fa-envelope me-3"></i>info@tecnosoft.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
@@ -183,32 +223,117 @@
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Enlaces Populares</h5>
                 <a class="btn btn-link" href="#">Nosotros</a>
-                <a class="btn btn-link" href="#">Contacto</a>
-                <a class="btn btn-link" href="#">Política de Privacidad</a>
-                <a class="btn btn-link" href="#">Términos y Condiciones</a>
-                <a class="btn btn-link" href="#">Carrera</a>
+                <a class="btn btn-link" data-toggle="modal" data-target="#misionVisionModal">Misión y Visión</a>
+                <a class="btn btn-link" data-toggle="modal" data-target="#politicasDePrivacidadModal">politicas de Privacidad</a>
+          
+                  <!-- Modal -->
+                  <div class="modal fade" id="misionVisionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Misión y Visión</h5>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <h5>Misión</h5>
+                        <p>En TECNOSOFT, nuestra misión es ofrecer soluciones innovadoras y eficientes en desarrollo de software, adaptadas a las necesidades específicas de nuestros clientes. Nos comprometemos a proporcionar productos y servicios de alta calidad que impulsen la transformación digital de empresas y organizaciones, facilitando así su crecimiento y éxito en un entorno tecnológico en constante evolución.</p>
+                        <h5>Visión</h5>
+                        <p>Nuestra visión en TECNOSOFT es ser reconocidos como líderes en el sector de desarrollo de software, destacándonos por nuestra excelencia técnica, creatividad y capacidad de respuesta. Nos esforzamos por establecer relaciones duraderas con nuestros clientes, siendo su socio de confianza en la implementación de soluciones innovadoras que optimicen sus procesos y maximicen su competitividad en el mercado global.</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                                               <!-- Modal politicas de privacidad -->
+                                               <div class="modal fade" id="politicasDePrivacidadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Política de Privacidad</h5>
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Última actualización: 25/06/2024</p>
+        
+                                                        <p>En TECNOSOFT, valoramos su privacidad y nos comprometemos a proteger su información personal. Esta política de privacidad explica cómo recopilamos, usamos, compartimos y protegemos su información cuando utiliza nuestro sitio web, aplicaciones y servicios.</p>
+                                                        
+                                                        <h2>1. Información que Recopilamos</h2>
+                                                        <p>Recopilamos varios tipos de información para proporcionar y mejorar nuestros servicios:</p>
+                                                        <ul>
+                                                            <li><p><strong>Información Personal:</strong> Información que puede usarse para identificarlo, como su nombre, dirección de correo electrónico, número de teléfono, y otra información similar.</p></li>
+                                                            <li><p><strong>Datos de Uso:</strong> Información sobre cómo accede y utiliza nuestro sitio web y servicios, como su dirección IP, tipo de navegador, páginas visitadas, tiempo y fecha de visita, etc.</p></li>
+                                                            <li><p><strong>Cookies y Tecnologías Similares:</strong> Utilizamos cookies para rastrear la actividad en nuestro sitio web y almacenar cierta información.</p></li>
+                                                        </ul>
+                                                        
+                                                        <h2>2. Cómo Usamos su Información</h2>
+                                                        <p>Usamos la información que recopilamos para diversos propósitos, tales como:</p>
+                                                        <ul>
+                                                            <li><p>Proveer y mantener nuestros servicios.</p></li>
+                                                            <li><p>Notificarle sobre cambios en nuestros servicios.</p></li>
+                                                            <li><p>Permitirle participar en funciones interactivas de nuestros servicios cuando elija hacerlo.</p></li>
+                                                            <li><p>Proveer soporte al cliente.</li>
+                                                            <li><p>Recopilar análisis o información valiosa para que podamos mejorar nuestros servicios.</p></li>
+                                                            <li><p>Monitorizar el uso de nuestros servicios.</p></li>
+                                                            <li><p>Detectar, prevenir y abordar problemas técnicos.</p></li>
+                                                        </ul>
+                                                        
+                                                        <h2>3. Cómo Compartimos su Información</h2>
+                                                        <p>No compartimos su información personal con terceros, excepto en las siguientes circunstancias:</p>
+                                                        <ul>
+                                                            <li><p>Con su consentimiento.</p></li>
+                                                            <li><p>Para cumplir con una obligación legal.</p></li>
+                                                            <li><p>Para proteger y defender los derechos o propiedad de TECNOSOFT.</p></li>
+                                                            <li><p>Para prevenir o investigar posibles infracciones en relación con el servicio.</p></li>
+                                                            <li><p>Para proteger la seguridad personal de los usuarios del servicio o del público.</p></li>
+                                                        </ul>
+                                                        
+                                                        <h2>4. Seguridad de su Información</h2>
+                                                        <p>La seguridad de su información es importante para nosotros. Implementamos medidas de seguridad técnicas y organizativas adecuadas para proteger su información personal. Sin embargo, ningún método de transmisión por Internet o de almacenamiento electrónico es 100% seguro. Si bien nos esforzamos por usar medios comercialmente aceptables para proteger su información personal, no podemos garantizar su absoluta seguridad.</p>
+                                                        
+                                                        <h2>5. Sus Derechos de Privacidad</h2>
+                                                        <p>Dependiendo de su ubicación, puede tener ciertos derechos sobre su información personal, tales como:</p>
+                                                        <ul>
+                                                            <li><p>El derecho a acceder a su información personal.</p></li>
+                                                            <li><p>El derecho a rectificar su información personal.</p></li>
+                                                            <li><p>El derecho a eliminar su información personal.</p></li>
+                                                            <li><p>El derecho a restringir el procesamiento de su información personal.</p></li>
+                                                            <li><p>El derecho a la portabilidad de los datos.</p></li>
+                                                            <li><p>El derecho a oponerse al procesamiento de su información personal.</p></li>
+                                                        </ul>
+                                                        <p>Para ejercer estos derechos, por favor contáctenos a <strong>miltonrodriguezdavalos@gmail.com</strong>.</p>
+                                                        
+                                                        <h2>6. Cambios a esta Política de Privacidad</h2>
+                                                        <p>Podemos actualizar nuestra política de privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva política de privacidad en esta página y actualizando la fecha de "Última actualización" en la parte superior de esta política de privacidad. Le recomendamos revisar esta política de privacidad periódicamente para estar informado sobre cómo protegemos su información.</p>
+                                                        
+                                                        <h2>7. Contáctenos</h2>
+                                                        <p>Si tiene alguna pregunta sobre esta política de privacidad, por favor contáctenos:</p>
+                                                        <p><strong>Email:</strong> miltonrodriguezdavalos@gmail.com</p>
+                                                        <p><strong>Dirección:</strong> Barrio 8 de septiembre, Radial 10</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Galería de Proyectos</h5>
                 <div class="row g-2">
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-1.jpg" alt="Proyecto 1">
+                        <img class="img-fluid" src="img/obo.webp" alt="Proyecto 1">
                     </div>
                     <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-2.jpg" alt="Proyecto 2">
+                        <img class="img-fluid" src="img/gowhats.jpg" alt="Proyecto 2">
                     </div>
                     <div class="col-4">
                         <img class="img-fluid" src="img/portfolio-3.jpg" alt="Proyecto 3">
                     </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-4.jpg" alt="Proyecto 4">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-5.jpg" alt="Proyecto 5">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid" src="img/portfolio-6.jpg" alt="Proyecto 6">
-                    </div>
+                    
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -248,10 +373,14 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="app.js"></script>
+ 
 </body>
 
 </html>
