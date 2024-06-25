@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for tecnosoft-pwa4 on 2024-06-24T04:00:11-04:00
+# fly.toml app configuration file generated for final-tecnosoft-pwa on 2024-06-25T01:32:34-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'tecnosoft-pwa4'
+app = 'final-tecnosoft-pwa'
 primary_region = 'scl'
 
 [build]
